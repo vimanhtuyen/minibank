@@ -1,0 +1,245 @@
+{
+  "next_account_id": 100004,
+  "next_transaction_number": 20,
+  "accounts": [
+    {
+      "account_id": "100001",
+      "owner_name": "Vi Manh Tuyen",
+      "pin_code": "927897",
+      "balance": 7690000,
+      "created_at": "2026-01-13 14:21:21"
+    },
+    {
+      "account_id": "100002",
+      "owner_name": "Vu Ngoc Phan",
+      "pin_code": "0000",
+      "balance": 17100000,
+      "created_at": "2026-01-13 20:07:19"
+    },
+    {
+      "account_id": "100003",
+      "owner_name": "Nguyễn Nhật Nam",
+      "pin_code": "1111",
+      "balance": 8100000,
+      "created_at": "2026-01-16 11:06:58"
+    }
+  ],
+  "transactions": [
+    {
+      "transaction_id": "TRANSACTION_00000001",
+      "transaction_type": "DEPOSIT",
+      "amount": 200000,
+      "time_text": "2026-01-13 14:21:21",
+      "note": "Nạp tiền ban đầu",
+      "from_account_id": null,
+      "to_account_id": "100001"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000002",
+      "transaction_type": "DEPOSIT",
+      "amount": 2000000,
+      "time_text": "2026-01-13 14:22:25",
+      "note": "Vi Manh Tuyen chuyen khoan",
+      "from_account_id": null,
+      "to_account_id": "100001"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000003",
+      "transaction_type": "WITHDRAW",
+      "amount": 10000,
+      "time_text": "2026-01-13 14:23:07",
+      "note": "",
+      "from_account_id": "100001",
+      "to_account_id": null
+    },
+    {
+      "transaction_id": "TRANSACTION_00000004",
+      "transaction_type": "DEPOSIT",
+      "amount": 100000,
+      "time_text": "2026-01-13 20:07:19",
+      "note": "Nạp tiền ban đầu",
+      "from_account_id": null,
+      "to_account_id": "100002"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000005",
+      "transaction_type": "DEPOSIT",
+      "amount": 20000000,
+      "time_text": "2026-01-13 20:12:50",
+      "note": "Luong thang 1",
+      "from_account_id": null,
+      "to_account_id": "100002"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000006",
+      "transaction_type": "TRANSFER_OUT",
+      "amount": 5000000,
+      "time_text": "2026-01-13 20:15:59",
+      "note": "Ngoc Phan tra no thay Tuyen",
+      "from_account_id": "100002",
+      "to_account_id": "100001"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000007",
+      "transaction_type": "TRANSFER_IN",
+      "amount": 5000000,
+      "time_text": "2026-01-13 20:15:59",
+      "note": "Ngoc Phan tra no thay Tuyen",
+      "from_account_id": "100002",
+      "to_account_id": "100001"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000008",
+      "transaction_type": "DEPOSIT",
+      "amount": 100000,
+      "time_text": "2026-01-16 11:06:58",
+      "note": "Nạp tiền ban đầu",
+      "from_account_id": null,
+      "to_account_id": "100003"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000009",
+      "transaction_type": "DEPOSIT",
+      "amount": 20000000,
+      "time_text": "2026-01-16 11:09:54",
+      "note": "Luong thang 1",
+      "from_account_id": null,
+      "to_account_id": "100003"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000010",
+      "transaction_type": "TRANSFER_OUT",
+      "amount": 2000000,
+      "time_text": "2026-01-16 11:11:21",
+      "note": "Chuyen khoan",
+      "from_account_id": "100003",
+      "to_account_id": "100002"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000011",
+      "transaction_type": "TRANSFER_IN",
+      "amount": 2000000,
+      "time_text": "2026-01-16 11:11:21",
+      "note": "Chuyen khoan",
+      "from_account_id": "100003",
+      "to_account_id": "100002"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000012",
+      "transaction_type": "WITHDRAW",
+      "amount": 10000000,
+      "time_text": "2026-01-16 11:12:58",
+      "note": "Rut tien",
+      "from_account_id": "100003",
+      "to_account_id": null
+    },
+    {
+      "transaction_id": "TRANSACTION_00000013",
+      "transaction_type": "DEPOSIT",
+      "amount": 500000,
+      "time_text": "2026-04-14 19:44:29",
+      "note": "nap tien",
+      "from_account_id": null,
+      "to_account_id": "100001"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000014",
+      "transaction_type": "SAVINGS_OPEN",
+      "amount": 7000000,
+      "time_text": "2026-04-14 19:47:09",
+      "note": "Gửi tiết kiệm Quý II | STK_000001 | 12 tháng | 6.50%/năm",
+      "from_account_id": "100001",
+      "to_account_id": null
+    },
+    {
+      "transaction_id": "TRANSACTION_00000015",
+      "transaction_type": "SAVINGS_CLOSE",
+      "amount": 7000000,
+      "time_text": "2026-04-14 19:47:59",
+      "note": "Tất toán STK_000001 trước hạn | chỉ nhận lại tiền gốc",
+      "from_account_id": null,
+      "to_account_id": "100001"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000016",
+      "transaction_type": "SAVINGS_OPEN",
+      "amount": 7000000,
+      "time_text": "2026-04-17 09:26:02",
+      "note": "Mở sổ STK_000002 | 12 tháng | 6.50%/năm",
+      "from_account_id": "100001",
+      "to_account_id": null
+    },
+    {
+      "transaction_id": "TRANSACTION_00000017",
+      "transaction_type": "SAVINGS_CLOSE",
+      "amount": 7000000,
+      "time_text": "2026-04-17 09:27:40",
+      "note": "Tất toán STK_000002 trước hạn | chỉ nhận lại tiền gốc",
+      "from_account_id": null,
+      "to_account_id": "100001"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000018",
+      "transaction_type": "DEPOSIT",
+      "amount": 1000000000,
+      "time_text": "2026-04-17 10:23:59",
+      "note": "tien luong thang 4",
+      "from_account_id": null,
+      "to_account_id": "100001"
+    },
+    {
+      "transaction_id": "TRANSACTION_00000019",
+      "transaction_type": "SAVINGS_OPEN",
+      "amount": 1000000000,
+      "time_text": "2026-04-17 10:25:44",
+      "note": "Mở sổ STK_000003 | 12 tháng | 6.50%/năm",
+      "from_account_id": "100001",
+      "to_account_id": null
+    }
+  ],
+  "next_saving_deposit_number": 4,
+  "saving_deposits": [
+    {
+      "deposit_id": "STK_000001",
+      "account_id": "100001",
+      "principal_amount": 7000000,
+      "annual_interest_rate": 6.5,
+      "term_months": 12,
+      "opened_at": "2026-04-14 19:47:09",
+      "maturity_at": "2027-04-14 19:47:09",
+      "status": "CLOSED",
+      "note": "Gửi tiết kiệm Quý II",
+      "settled_at": "2026-04-14 19:47:59",
+      "interest_earned": 0,
+      "maturity_amount": 7000000
+    },
+    {
+      "deposit_id": "STK_000002",
+      "account_id": "100001",
+      "principal_amount": 7000000,
+      "annual_interest_rate": 6.5,
+      "term_months": 12,
+      "opened_at": "2026-04-17 09:26:02",
+      "maturity_at": "2027-04-17 09:26:02",
+      "status": "CLOSED",
+      "note": "",
+      "settled_at": "2026-04-17 09:27:40",
+      "interest_earned": 0,
+      "maturity_amount": 7000000
+    },
+    {
+      "deposit_id": "STK_000003",
+      "account_id": "100001",
+      "principal_amount": 1000000000,
+      "annual_interest_rate": 6.5,
+      "term_months": 12,
+      "opened_at": "2026-04-17 10:25:44",
+      "maturity_at": "2027-04-17 10:25:44",
+      "status": "ACTIVE",
+      "note": "",
+      "settled_at": null,
+      "interest_earned": 65000000,
+      "maturity_amount": 1065000000
+    }
+  ]
+}

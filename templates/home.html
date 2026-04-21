@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Mini Bank | Đăng nhập{% endblock %}
+{% block content %}
+<div class="hero card">
+  <div>
+    <h2>Đưa Mini Bank lên PythonAnywhere</h2>
+    <p>Phiên bản này dùng Flask nên có thể chạy thành website. Lõi nghiệp vụ và dữ liệu JSON vẫn được giữ lại.</p>
+  </div>
+  <div class="stats">
+    <div><strong>{{ stats.account_count }}</strong><span>Tài khoản</span></div>
+    <div><strong>{{ stats.transaction_count }}</strong><span>Giao dịch</span></div>
+    <div><strong>{{ stats.saving_count }}</strong><span>Sổ tiết kiệm</span></div>
+  </div>
+</div>
+
+<div class="grid-2">
+  <section class="card">
+    <h3>Đăng nhập</h3>
+    <form method="post" action="{{ url_for('login') }}" class="form-grid">
+      <label>Số tài khoản
+        <input name="account_id" required>
+      </label>
+      <label>PIN
+        <input name="pin_code" required type="password" minlength="4" maxlength="6">
+      </label>
+      <button class="btn" type="submit">Đăng nhập</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h3>Tạo tài khoản</h3>
+    <form method="post" action="{{ url_for('register') }}" class="form-grid">
+      <label>Tên chủ tài khoản
+        <input name="owner_name" required>
+      </label>
+      <label>PIN 4–6 chữ số
+        <input name="pin_code" required type="password" minlength="4" maxlength="6">
+      </label>
+      <label>Số dư ban đầu
+        <input name="initial_balance" placeholder="VD: 100000">
+      </label>
+      <button class="btn" type="submit">Tạo tài khoản</button>
+    </form>
+  </section>
+</div>
+{% endblock %}

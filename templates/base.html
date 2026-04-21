@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Mini Bank Web{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div>
+        <h1>Mini Bank Web</h1>
+        <p>Chuyển đổi từ dự án Tkinter sang web để deploy trên PythonAnywhere</p>
+      </div>
+      {% if session.get('account_id') %}
+      <form method="post" action="{{ url_for('logout') }}">
+        <button class="btn btn-light" type="submit">Đăng xuất</button>
+      </form>
+      {% endif %}
+    </div>
+  </header>
+
+  <main class="wrap main-content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-stack">
+          {% for category, message in messages %}
+            <div class="flash flash-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

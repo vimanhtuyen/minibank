@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% block title %}Mini Bank | Dashboard{% endblock %}
+{% block content %}
+<div class="card account-head">
+  <div>
+    <h2>{{ account.owner_name }}</h2>
+    <p>Số tài khoản: <strong>{{ account.account_id }}</strong></p>
+  </div>
+  <div class="balance-box">
+    <span>Số dư hiện tại</span>
+    <strong>{{ format_money_vnd(account.balance) }}</strong>
+  </div>
+</div>
+
+<div class="grid-3">
+  <section class="card">
+    <h3>Nạp tiền</h3>
+    <form method="post" action="{{ url_for('deposit') }}" class="form-grid">
+      <label>Số tiền
+        <input name="amount" required>
+      </label>
+      <label>Ghi chú
+        <input name="note">
+      </label>
+      <button class="btn" type="submit">Nạp tiền</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h3>Rút tiền</h3>
+    <form method="post" action="{{ url_for('withdraw') }}" class="form-grid">
+      <label>Số tiền
+        <input name="amount" required>
+      </label>
+      <label>Ghi chú
+        <input name="note">
+      </label>
+      <button class="btn btn-warn" type="submit">Rút tiền</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h3>Chuyển khoản</h3>
+    <form method="post" action="{{ url_for('transfer') }}" class="form-grid">
+      <label>Tài khoản nhận
+        <input name="to_account_id" required>
+      </label>
+      <label>Số tiền
+        <input name="amount" required>
+      </label>
+      <label>Ghi chú
+        <input name="note">
+      </label>
+      <button class="btn btn-secondary" type="submit">Chuyển tiền</button>
+    </form>
+  </section>
+</div>
+
+<div class="grid-2">
+  <section class="card">
+    <h3>Tiết kiệm</h3>
+    <div class="summary-row">
+      <div><strong>{{ savings_summary.active_count }}</strong><span>Sổ đang hoạt động</span></div>
+      <div><strong>{{ format_money_vnd(savings_summary.total_principal) }}</strong><span>Tổng gốc</span></div>
+      <div><strong>{{ format_money_vnd(savings_summary.total_maturity) }}</strong><span>Giá trị đến hạn</span></div>
+    </div>
+    <form method="post" action="{{ url_for('open_savings') }}" class="form-grid">
+      <label>Số tiền gửi
+        <input name="principal_amount" required>
+      </label>
+      <label>Lãi suất năm (%)
+        <input name="annual_interest_rate" required placeholder="6.8">
+      </label>
+      <label>Kỳ hạn (tháng)
+        <input name="term_months" required placeholder="6">
+      </label>
+      <label>Ghi chú
+        <input name="note">
+      </label>
+      <button class="btn" type="submit">Mở sổ tiết kiệm</button>
+    </form>
+
+    {% if savings %}
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Mã sổ</th>
+            <th>Gốc</th>
+            <th>Lãi suất</th>
+            <th>Đến hạn</th>
+            <th>Trạng thái</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for s in savings %}
+          <tr>
+            <td>{{ s.deposit_id }}</td>
+            <td>{{ format_money_vnd(s.principal_amount) }}</td>
+            <td>{{ format_interest_rate(s.annual_interest_rate) }}</td>
+            <td>{{ s.maturity_at }}</td>
+            <td>{{ s.status }}</td>
+            <td>
+              {% if s.status|upper == 'ACTIVE' %}
+              <form method="post" action="{{ url_for('settle_savings', deposit_id=s.deposit_id) }}">
+                <button class="btn btn-light" type="submit">Tất toán</button>
+              </form>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </section>
+
+  <section class="card">
+    <h3>Lịch sử giao dịch</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Thời gian</th>
+            <th>Loại</th>
+            <th>Số tiền</th>
+            <th>Ghi chú</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for t in transactions %}
+          <tr>
+            <td>{{ t.time_text }}</td>
+            <td>{{ transaction_type_display(t.transaction_type) }}</td>
+            <td>{{ format_money_vnd(t.amount) }}</td>
+            <td>{{ t.note }}</td>
+          </tr>
+        {% else %}
+          <tr><td colspan="4">Chưa có giao dịch nào.</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+{% endblock %}
